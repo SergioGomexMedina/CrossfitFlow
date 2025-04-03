@@ -25,31 +25,31 @@
 </nav>
 
 <div class="clases-container p-4">
-    <div class="clase fight-park" (click)="openModal('Mensual Básico', '25,99$', 'Incluye acceso ilimitado al gimnasio y clases grupales.')">
+    <div class="clase fight-park" (click)="openModal('Mensual Básico', '25,99€', 'Incluye acceso ilimitado al gimnasio y clases grupales.')">
       <div class="overlay">
         <h2>Mensual Básico</h2>
-        <p>25,99$</p>
+        <p>25,99€</p>
       </div>
     </div>
     
-    <div class="clase burning-park" (click)="openModal('Anual', '240$', 'Acceso todo el año con beneficios exclusivos.')">
+    <div class="clase burning-park" (click)="openModal('Anual', '240€', 'Acceso todo el año con beneficios exclusivos.')">
       <div class="overlay">
         <h2>Anual</h2>
-        <p>240$</p>
+        <p>240€</p>
       </div>
     </div>
   
-    <div class="clase les-mills" (click)="openModal('Mensual Premium', '35,75$', 'Acceso premium con entrenador personal y zona VIP.')">
+    <div class="clase les-mills" (click)="openModal('Mensual Premium', '35,75€', 'Acceso premium con entrenador personal y zona VIP.')">
       <div class="overlay">
         <h2>Mensual Premium</h2>
-        <p>35,75$</p>
+        <p>35,75€</p>
       </div>
     </div>
   
-    <div class="clase techno-gym" (click)="openModal('Semanal', '17,99$', 'Ideal para quienes desean probar antes de comprometerse.')">
+    <div class="clase techno-gym" (click)="openModal('Semanal', '17,99€', 'Ideal para quienes desean probar antes de comprometerse.')">
       <div class="overlay">
         <h2>Semanal</h2>
-        <p>17,99$</p>
+        <p>17,99€</p>
       </div>
     </div>
 </div>
@@ -63,3 +63,8 @@
     <p><strong>Descripción:</strong> {{ modalDescription }}</p>
   </div>
 </div>
+
+<!-- CALENDARIO -->
+ <div class="bgcl">
+   <app-calendar></app-calendar>
+ </div>

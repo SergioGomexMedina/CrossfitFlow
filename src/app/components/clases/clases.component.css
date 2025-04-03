@@ -212,7 +212,6 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transform: scale(1.08);
   }
-  /* Asegúrate de que estos estilos se incluyan en tu archivo CSS */
 .section-text {
     padding: 50px 0;
     background-color: #f8f9fa;
@@ -236,12 +235,10 @@
     text-align: justify;
   }
   
-  /* Estilos de márgenes */
   .mb-4 {
     margin-bottom: 1.5rem;
   }
   
-  /* Estilos para el título */
   .text-center {
     text-align: center;
   }
@@ -257,27 +254,27 @@
   }
   
   .col-lg-6 img {
-    width: 100%; /* O usa un tamaño fijo como max-width: 400px; */
+    width: 100%; 
     height: auto;
-    object-fit: cover; /* Asegura que las imágenes mantengan proporción y cubran el espacio */
+    object-fit: cover; 
   }
   
   .banner-image-1,
   .img {
     position: absolute;
     width: 100%;
-    max-width: 400px; /* Ajusta según el tamaño deseado */
+    max-width: 400px; 
   }
   
   img {
-    width: 250px; /* Ajusta según el tamaño deseado */
-    height: 250px; /* Mantiene la misma altura para evitar deformaciones */
-    object-fit: cover; /* Recorta la imagen para llenar el área sin deformarse */
-    border-radius: 10px; /* Bordes redondeados para una apariencia más estética */
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    border: 2px solid #ddd; /* Borde sutil */
-    display: block; /* Evita espacios no deseados */
-    margin: auto; /* Centra la imagen */
+    width: 250px;
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #ddd; 
+    display: block;
+    margin: auto; 
   }
   
   .banner-section {
@@ -286,11 +283,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh; /* Ajusta según necesites */
+    height: 100vh; 
 }
 .center-container {
     display: grid;
-    place-items: center; /* Centra tanto horizontal como verticalmente */
+    place-items: center; 
     height: 30vh;
   }
   
@@ -322,4 +319,6 @@
     font-size: 30px;
     cursor: pointer;
   }
-  
+  .bgcl{
+    background-color: #000000;
+  }

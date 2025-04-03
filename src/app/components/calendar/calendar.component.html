@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Disponibilidad Horaria</h2>
+  
+    <div class="planes">
+      <div class="btn-group">
+        <button *ngFor="let plan of planes" class="btn" (click)="cambiarPlan(plan)">
+          {{ plan }}
+        </button>
+      </div>
+    </div>
+  
+    <div class="horarios bg-white p-4">
+      <h3>Horarios para  <strong>{{ planSeleccionado }}</strong></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Día</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let disponibilidadDia of disponibilidad[planSeleccionado]">
+            <td>{{ disponibilidadDia.dia }}</td>
+            <td>{{ disponibilidadDia.horario }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

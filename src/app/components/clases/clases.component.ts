@@ -42,5 +42,6 @@ export class ClasesComponent {
   goToLista() {
     this.router.navigate(['/lista']);
   }
+  
 
 }

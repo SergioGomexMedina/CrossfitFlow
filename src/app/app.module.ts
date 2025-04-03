@@ -1,15 +1,9 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { GimnasioComponent } from './components/gimnasio/gimnasio.component';
 import { LoginComponent } from './components/login/login.component';
@@ -28,6 +22,12 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { ImagenPipe } from './pipe/imagen.pipe';
 import { EntrenadorPipe } from './pipe/entrenador.pipe';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import { DateAdapter } from 'angular-calendar';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { EntrenadorPipe } from './pipe/entrenador.pipe';
     ReservaComponent,
     ImagenPipe,
     EntrenadorPipe,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,24 +54,27 @@ import { EntrenadorPipe } from './pipe/entrenador.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule, 
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
   ],
   providers: [
-    provideClientHydration(withEventReplay()),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
-    provideFirebaseApp(() =>
+    provideFirebaseApp(() => 
       initializeApp({
         projectId: 'crossfitflow',
         appId: '1:831085076098:web:d1cd6646250ff519569e9b',
-        databaseURL:
-          'https://crossfitflow-default-rtdb.europe-west1.firebasedatabase.app',
+        databaseURL: 'https://crossfitflow-default-rtdb.europe-west1.firebasedatabase.app',
         storageBucket: 'crossfitflow.firebasestorage.app',
         apiKey: 'AIzaSyBnVRH_jiQ0bXLL_tHM0U5j4X_SGosyc2U',
         authDomain: 'crossfitflow.firebaseapp.com',
         messagingSenderId: '831085076098',
       })
-    )
+    ),
   ],
   bootstrap: [AppComponent],
 })

@@ -17,13 +17,16 @@ export class InicioComponent {
     this.router.navigate(['/lista']);
   }
   goToClases() {
-    this.router.navigate(['/clases']);
+    this.router.navigate(['/lista']);
   }
   goToActividades() {
     this.router.navigate(['/actividades']);
   }
   goToEntrenadores() {
     this.router.navigate(['/entrenadores']);
+  }
+  goToPlanes(){
+    this.router.navigate(['/clases']);
   }
   goToGim() {
     this.router.navigate(['/gim']);
