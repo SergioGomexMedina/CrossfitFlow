@@ -1,0 +1,33 @@
+<div class="container">
+    
+    <div class="filtros">
+        <div class="filtro-item">
+          <label for="tipo">Tipo:</label>
+          <select id="tipo" [(ngModel)]="filtroTipo" (change)="filtrarClases()">
+            <option value="">Todos</option>
+            <option value="crossfit">Crossfit</option>
+            <option value="undirance">Undirance</option>
+            <option value="halterofilia">Halterofilia</option>
+            <option value="openbox">Openbox</option>
+          </select>
+        </div>
+      
+        <div class="filtro-item">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" [(ngModel)]="filtroFecha" (change)="filtrarClases()" />
+        </div>
+      </div>
+      
+
+    <div class="class-list">
+      <div class="class-item" *ngFor="let clase of clasesFiltradas">
+        <img [src]="clase.tipo | imagen" class="class-image" alt="{{ clase.tipo }}">
+        <h3>{{ clase.tipo | uppercase }}</h3>
+        <p><strong>Entrenador:</strong> {{ clase.entrenador }}</p>
+        <p><strong>Fecha:</strong> {{ clase.fecha }}</p>
+        <p><strong>Duración:</strong> {{ clase.duracion }} min</p>
+        <button class="reserve-btn">Reservar</button>
+      </div>
+    </div>
+  </div>
+  

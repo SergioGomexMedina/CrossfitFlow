@@ -1,0 +1,157 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fc;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
+  }
+  
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: #f8f9fc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .navbar-center {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-center a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  .navbar-center a:hover {
+    color: #007bff;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .icon-btn {
+    background: #e9eff5;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    transition: 0.3s;
+  }
+  
+  .icon-btn img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .icon-btn:hover {
+    background: #d0dae5;
+  }
+  
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .profile-pic2 {
+    width: 120px; /* Tamaño de la imagen */
+    height: 120px;
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+    border-radius: 50%; /* Forma circular */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+    border: 4px solid #e9ab01; /* Borde decorativo */
+  }
+  .pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Contenedor Principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;  /* Limita el ancho máximo de la pantalla */
+    margin: 0 auto;  /* Centra el contenedor */
+    height: auto;
+  }
+  
+ 
+  
+  /* Estilo de las tarjetas de Entrenadores */
+  .class-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px;
+    margin-top: 20px;
+    justify-items: center;  /* Centra las cartas dentro del contenedor */
+  }
+  
+  .class-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000000;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    transition: transform 0.3s ease;
+  }
+  
+  .class-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .class-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+  }
+  /* Estilo para la frase motivacional */
+.quote {
+    font-family: 'Courier New', Courier, monospace; /* Cambiar a cualquier fuente que desees */
+    font-size: 16px;  /* Tamaño de la fuente */
+    color: #e9ab01;   /* Color de la fuente */
+    font-style: italic; /* Estilo de la fuente (cursiva) */
+    margin-top: 10px; /* Separar un poco de los otros párrafos */
+  }
+  

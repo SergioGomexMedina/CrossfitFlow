@@ -1,0 +1,110 @@
+.container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+}
+
+/* Lista de Clases */
+.class-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px;
+}
+
+/* Estilo de Cada Clase */
+.class-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000000;  
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: white; 
+}
+
+
+.class-image {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Botón de Reserva */
+.reserve-btn {
+  background: #ffbc03;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.reserve-btn:hover {
+  background: #f0f0f0;
+}
+
+/* 🔹 Contenedor de Filtros */
+.filtros {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #493e43, #493e43);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* 🔹 Cada filtro individual */
+.filtro-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* 🔹 Labels */
+.filtro-item label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* 🔹 Select y Input */
+.filtro-item select,
+.filtro-item input {
+  background: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filtro-item select:hover,
+.filtro-item input:hover {
+  transform: scale(1.05);
+}
+
+/* 🔹 Ajustes Responsivos */
+@media (max-width: 600px) {
+  .filtros {
+      flex-direction: column;
+      align-items: center;
+  }
+}

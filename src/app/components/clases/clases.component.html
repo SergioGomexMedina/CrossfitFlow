@@ -1,0 +1,65 @@
+<nav class="navbar">
+    <div class="navbar-left">
+      <span class="logo">CrossfitFlow</span>
+    </div>
+    <div class="navbar-center">
+      <a (click)="goToInicio()">Inicio</a>
+      <a (click)="goToActividades()">Actividades</a>
+      <a (click)="goToEntrenadores()">Entrenadores</a>
+      <a (click)="goToGim()">Gimnasio</a>
+      <a (click)="goToLista()">Reserva</a>
+    </div>
+    <div class="navbar-right">
+      <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
+        <button>
+          <img src="../../../assets/correo.jpg" alt="Correo" class="pic">
+        </button>
+      </a>
+      <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
+        <button>
+            <img src="../../../assets/insta.avif" alt="Instagram" class="pic">
+        </button>
+      </a>
+      <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
+    </div>
+</nav>
+
+<div class="clases-container p-4">
+    <div class="clase fight-park" (click)="openModal('Mensual Básico', '25,99$', 'Incluye acceso ilimitado al gimnasio y clases grupales.')">
+      <div class="overlay">
+        <h2>Mensual Básico</h2>
+        <p>25,99$</p>
+      </div>
+    </div>
+    
+    <div class="clase burning-park" (click)="openModal('Anual', '240$', 'Acceso todo el año con beneficios exclusivos.')">
+      <div class="overlay">
+        <h2>Anual</h2>
+        <p>240$</p>
+      </div>
+    </div>
+  
+    <div class="clase les-mills" (click)="openModal('Mensual Premium', '35,75$', 'Acceso premium con entrenador personal y zona VIP.')">
+      <div class="overlay">
+        <h2>Mensual Premium</h2>
+        <p>35,75$</p>
+      </div>
+    </div>
+  
+    <div class="clase techno-gym" (click)="openModal('Semanal', '17,99$', 'Ideal para quienes desean probar antes de comprometerse.')">
+      <div class="overlay">
+        <h2>Semanal</h2>
+        <p>17,99$</p>
+      </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ modalTitle }}</h2>
+    <p><strong>Precio:</strong> {{ modalPrice }}</p>
+    <p><strong>Descripción:</strong> {{ modalDescription }}</p>
+  </div>
+</div>

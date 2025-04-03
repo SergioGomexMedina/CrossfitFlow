@@ -1,0 +1,67 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+        <span class="logo">CrossfitFlow</span>
+    </div>
+    <div class="navbar-center">
+        <a (click)="goToInicio()">Inicio</a>
+        <a (click)="goToClases()">Planes</a>
+        <a (click)="goToEntrenadores()">Entrenadores</a>
+        <a (click)="goToActividades()">Actividades</a>
+        <a (click)="goToLista()">Reserva</a>
+    </div>
+    <div class="navbar-right">
+        <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
+            <button>
+              <img src="../../../assets/correo.jpg" alt="Notifications" class="pic">
+            </button>
+          </a>
+        <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
+            <button>
+                <img src="../../../assets/insta.avif" alt="Profile" class="pic">
+            </button>
+        </a>
+        <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="text-center mt-4">
+    <h1 class="title">Instalaciones</h1>
+</header>
+
+<!-- Galería de Imágenes -->
+<section class="container gallery">
+    <div class="row">
+        <div class="col-md-6 col-lg-4" *ngFor="let imagen of imagenes">
+            <img [src]="imagen.src" [alt]="imagen.alt" class="gallery-img mb-3" >
+        </div>
+    </div>
+</section>
+
+<!-- Modal de Bootstrap -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ imagenSeleccionada?.alt }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img [src]="imagenSeleccionada.src" class="img-fluid" *ngIf="imagenSeleccionada">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <h2 class="text-center text-warning">Ubicación</h2>
+    <div class="map-container">
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6081.1274622975825!2d-3.833751623447355!3d40.35202297145006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418ec93a7eb8c5%3A0x4bf03646d550b227!2sCES%20Juan%20Pablo%20II!5e0!3m2!1ses!2ses!4v1743661511459!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+    <p class="text-center text-warning">&copy; 2025 CrossFitFlow. Todos los derechos reservados.</p>
+</footer>

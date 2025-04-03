@@ -1,0 +1,20 @@
+<div class="chatbot-button" (click)="toggleChat()">
+    💬
+</div>
+
+
+<div class="chat-container" *ngIf="chatAbierto">
+    <div class="chat-header">
+        <span>Flowchat</span>
+        <button (click)="toggleChat()">✖</button>
+    </div>
+    <div class="chat-box">
+        <div *ngFor="let mensaje of mensajes" [ngClass]="mensaje.tipo">
+            {{ mensaje.texto }}
+        </div>
+    </div>
+    <div class="input-container">
+        <input [(ngModel)]="mensajeUsuario" type="text" placeholder="Escribe aquí..." (keyup.enter)="procesarMensaje()">
+        <button (click)="procesarMensaje()">Enviar</button>
+    </div>
+</div>
