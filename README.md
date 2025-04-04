@@ -1,59 +1,53 @@
-# CrossFitFlow
+# 🏋️ CrossFitFlow – Plataforma Web para Gimnasios Modernos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+![Angular](https://img.shields.io/badge/Angular-17-red?logo=angular) ![Firebase](https://img.shields.io/badge/Firebase-Backend-yellow?logo=firebase) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Development server
+> 📚 Proyecto de Fin de Grado – Desarrollo de Aplicaciones Multiplataforma (DAM)
 
-To start a local development server, run:
+---
+
+## 💡 ¿Qué es CrossFitFlow?
+
+**CrossFitFlow** es una aplicación web pensada para revolucionar la forma en la que los gimnasios se conectan con sus usuarios. Desarrollada con **Angular** y potenciada por **Firebase**, permite gestionar clases, entrenadores, reservas, seguimiento del progreso físico, y mucho más.
+
+Diseñada para ser rápida, intuitiva, atractiva y adaptada a móviles gracias a su arquitectura como **PWA** (Progressive Web App).
+
+---
+
+## 🚀 Tecnologías Utilizadas
+
+- 🧩 **Angular 17** – Framework SPA para el frontend
+- ☁️ **Firebase**
+  - Firestore (Base de datos en tiempo real)
+  - Authentication (Login con Google/email)
+  - Storage (Imágenes, videos, archivos)
+  - Hosting (Deploy del sitio web)
+  - Cloud Messaging (Notificaciones push)
+- 💅 **TailwindCSS** (o Angular Material, según el diseño final)
+- 📊 **Chart.js** – Gráficas de progreso
+- 📱 **PWA Ready** – App instalable desde el navegador
+
+---
+
+## 🔥 Funcionalidades Destacadas
+
+- ✅ Registro e inicio de sesión con autenticación segura
+- ✅ Reservas de clases y entrenamientos personales
+- ✅ Calendario de actividades y disponibilidad
+- ✅ Visualización de entrenadores y sus perfiles
+- ✅ Seguimiento del progreso físico con gráficas
+- ✅ Subida de fotos de evolución y métricas
+- ✅ Galería de entrenamientos con video
+- ✅ Modo oscuro/claro
+- ✅ Notificaciones push
+- ✅ Instalación como App móvil (PWA)
+
+---
+
+## 📦 Instalación para Desarrolladores
 
 ```bash
+git clone https://github.com/tuusuario/crossfitflow.git
+cd crossfitflow
+npm install
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
