@@ -1,4 +1,4 @@
-# 🏋️ CrossFitFlow – Plataforma Web para Gimnasios Modernos
+# 🏋️ CrossFitFlow – Plataforma Web para Gimnasios 
 
 ![Angular](https://img.shields.io/badge/Angular-17-red?logo=angular) ![Firebase](https://img.shields.io/badge/Firebase-Backend-yellow?logo=firebase) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
