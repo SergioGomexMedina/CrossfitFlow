@@ -10,22 +10,21 @@
 
 **CrossFitFlow** es una aplicación web pensada para revolucionar la forma en la que los gimnasios se conectan con sus usuarios. Desarrollada con **Angular** y potenciada por **Firebase**, permite gestionar clases, entrenadores, reservas, seguimiento del progreso físico, y mucho más.
 
-Diseñada para ser rápida, intuitiva, atractiva y adaptada a móviles gracias a su arquitectura como **PWA** (Progressive Web App).
+Diseñada para ser rápida, intuitiva, atractiva y adaptada a móviles gracias a su arquitectura.
 
 ---
 
 ## 🚀 Tecnologías Utilizadas
 
-- 🧩 **Angular 17** – Framework SPA para el frontend
-- ☁️ **Firebase**
-  - Firestore (Base de datos en tiempo real)
-  - Authentication (Login con Google/email)
-  - Storage (Imágenes, videos, archivos)
-  - Hosting (Deploy del sitio web)
-  - Cloud Messaging (Notificaciones push)
-- 💅 **TailwindCSS** (o Angular Material, según el diseño final)
-- 📊 **Chart.js** – Gráficas de progreso
-- 📱 **PWA Ready** – App instalable desde el navegador
+| Herramienta       | Descripción                                           |
+|-------------------|-------------------------------------------------------|
+| ⚙️ Angular 17      | Framework SPA para frontend                          |
+| ☁️ Firebase        | Backend (Auth, Firestore, Hosting, Storage, Push)    |
+| 🎨 Bootstrap 5     | Componentes y estilos responsive                     |
+| 🎨 CSS3            | Estilos personalizados                               |
+| 🧪 RunMocky        | Simulación de endpoints y APIs para pruebas          |
+| 📊 Chart.js        | Visualización de progreso del usuario                |
+
 
 ---
 
@@ -39,8 +38,8 @@ Diseñada para ser rápida, intuitiva, atractiva y adaptada a móviles gracias a
 - ✅ Subida de fotos de evolución y métricas
 - ✅ Galería de entrenamientos con video
 - ✅ Modo oscuro/claro
+- ✅ Consumo de datos simulados con RunMocky para desarrollo
 - ✅ Notificaciones push
-- ✅ Instalación como App móvil (PWA)
 
 ---
 
