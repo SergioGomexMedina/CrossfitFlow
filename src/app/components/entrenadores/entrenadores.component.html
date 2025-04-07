@@ -1,29 +1,32 @@
 <!-- Navbar -->
 <nav class="navbar">
-    <div class="navbar-left">
-      <span class="logo">CrossfitFlow</span>
-    </div>
-    <div class="navbar-center">
-      <a (click)="goToInicio()">Inicio</a>
-      <a (click)="goToClases()">Planes</a>
-      <a (click)="goToGimnasio()">Gimnasio</a>
-      <a (click)="goToActividades()">Actividades</a>
-      <a (click)="goToLista()">Reserva</a>
-    </div>
-    <div class="navbar-right">
-      <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
-        <button>
-          <img src="../../../assets/correo.jpg" alt="Notifications" class="pic">
-        </button>
-      </a>
-      <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
-        <button>
-            <img src="../../../assets/insta.avif" alt="Profile" class="pic">
-        </button>
+  <div class="navbar-left">
+    <a [routerLink]="['/personales']">
+      <img src="../../../assets/perfil.webp" alt="Notifications" class="pic2">
     </a>
-      <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
-    </div>
-  </nav>
+      </div>
+  <div class="navbar-center">
+    <a (click)="goToInicio()">Inicio</a>
+    <a (click)="goToClases()">Planes</a>
+    <a (click)="goToLista()">Reserva</a>
+    <a (click)="goToGim()">Gimnasio</a>
+    <a (click)="goToActividades()">Actividades</a>
+  </div>
+  <div class="navbar-right">
+    <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
+      <button>
+        <img src="../../../assets/correo.jpg" alt="Notifications" class="pic">
+      </button>
+    </a>
+    <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
+      <button>
+          <img src="../../../assets/insta.avif" alt="Profile" class="pic">
+      </button>
+  </a>
+    <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
+  </div>
+</nav>
+  
   
  
   <div class="container">

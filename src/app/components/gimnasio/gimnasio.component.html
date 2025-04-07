@@ -1,7 +1,10 @@
 <!-- Navbar -->
 <nav class="navbar">
     <div class="navbar-left">
-        <span class="logo">CrossfitFlow</span>
+        <a [routerLink]="['/personales']">
+            <img src="../../../assets/perfil.webp" alt="Notifications" class="pic2">
+          </a>
+            
     </div>
     <div class="navbar-center">
         <a (click)="goToInicio()">Inicio</a>

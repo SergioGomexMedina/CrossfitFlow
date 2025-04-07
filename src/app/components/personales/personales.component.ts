@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Firestore, collection, addDoc, getDocs } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Chart } from 'chart.js';  // Asegúrate de importar Chart.js correctamente
+import { Router } from '@angular/router';
+import { Chart } from 'chart.js';
+
 @Component({
   selector: 'app-personales',
   standalone: false,
@@ -10,10 +12,11 @@ import { Chart } from 'chart.js';  // Asegúrate de importar Chart.js correctame
 })
 export class PersonalesComponent {
   progresoForm: FormGroup;
-  progresoData: any[] = [];  // Para almacenar los datos obtenidos de Firestore
-  chart: any;  // Para almacenar el gráfico de Chart.js
+  progresoData: any[] = [];
+  chart: any;
+  imagenPerfilUrl: string | null = null; // Nueva propiedad para la imagen
 
-  constructor(private db: Firestore, private fb: FormBuilder) {
+  constructor(private db: Firestore, private fb: FormBuilder, private router: Router) {
     this.progresoForm = this.fb.group({
       peso: [''],
       altura: [''],
@@ -25,10 +28,28 @@ export class PersonalesComponent {
       foto: ['']
     });
 
-    this.loadProgresoData(); // Llamamos a la función de carga de datos
+    this.loadProgresoData();
   }
 
-  // Guardar los datos en Firestore
+  goToInicio() {
+    this.router.navigate(['/inicio']);
+  }
+  goToClases() {
+    this.router.navigate(['/clases']);
+  }
+  goToActividades() {
+    this.router.navigate(['/actividades']);
+  }
+  goToEntrenadores() {
+    this.router.navigate(['/entrenadores']);
+  }
+  goToGim() {
+    this.router.navigate(['/gim']);
+  }
+  goToLista() {
+    this.router.navigate(['/lista']);
+  }
+
   async onSubmit() {
     const progreso = this.progresoForm.value;
 
@@ -37,13 +58,13 @@ export class PersonalesComponent {
       await addDoc(progresoCollection, progreso);
       alert('Datos guardados con éxito');
       this.progresoForm.reset();
-      this.loadProgresoData();  // Cargar los datos después de guardar
+      this.imagenPerfilUrl = null; // Limpiar imagen después de guardar
+      this.loadProgresoData();
     } catch (error) {
       alert('Hubo un error al guardar los datos: ' + error);
     }
   }
 
-  // Cargar los datos de progreso desde Firestore
   async loadProgresoData() {
     try {
       const querySnapshot = await getDocs(collection(this.db, 'progresos'));
@@ -53,57 +74,65 @@ export class PersonalesComponent {
       });
 
       console.log('Datos cargados:', this.progresoData);
-      this.generateChart(); // Después de cargar los datos, generar el gráfico
-
+      this.generateChart();
     } catch (error) {
       console.log('Error al cargar los datos: ', error);
     }
   }
 
-  // Generar gráfico con los datos de progreso
   generateChart() {
-    // Si ya existe un gráfico, destrúyelo antes de crear uno nuevo
     if (this.chart) {
       this.chart.destroy();
     }
 
-    const labels = this.progresoData.map(data => `Semana ${this.progresoData.indexOf(data) + 1}`);
+    const labels = this.progresoData.map((_, i) => `Semana ${i + 1}`);
     const pesos = this.progresoData.map(data => data.peso);
     const imcValues = this.progresoData.map(data => this.calcularIMC(data.peso, data.altura));
 
-    // Crear el gráfico
     this.chart = new Chart('chartCanvas', {
-      type: 'line',  // Tipo de gráfico
+      type: 'line',
       data: {
-        labels: labels,  // Las etiquetas (e.g. "Semana 1", "Semana 2", etc.)
+        labels: labels,
         datasets: [
           {
-            label: 'Peso (kg)',  // Etiqueta para la línea del peso
-            data: pesos,  // Los datos del peso
-            borderColor: 'rgba(75, 192, 192, 1)',  // Color de la línea del peso
-            fill: false,  // No rellenar el área debajo de la línea
+            label: 'Peso (kg)',
+            data: pesos,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            fill: false,
           },
           {
-            label: 'IMC',  // Etiqueta para la línea del IMC
-            data: imcValues,  // Los datos del IMC
-            borderColor: 'rgba(255, 99, 132, 1)',  // Color de la línea del IMC
-            fill: false,  // No rellenar el área debajo de la línea
+            label: 'IMC',
+            data: imcValues,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            fill: false,
           }
         ],
       },
       options: {
-        responsive: true,  // Hacer que el gráfico sea responsivo
+        responsive: true,
         scales: {
           y: {
-            beginAtZero: true  // Empezar el eje Y desde cero
+            beginAtZero: true
           }
         }
       }
     });
   }
 
-  // Calcular el IMC
   calcularIMC(peso: number, altura: number) {
-    return (peso / (altura * altura)).toFixed(2);  // Fórmula del IMC
+    return (peso / (altura * altura)).toFixed(2);
+  }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.imagenPerfilUrl = URL.createObjectURL(file);
+
+      // Cambiar imagen en el navbar con alt="perfil"
+      const navbarImg = document.querySelector('img[alt="perfil"]') as HTMLImageElement;
+      if (navbarImg) {
+        navbarImg.src = this.imagenPerfilUrl;
+      }
+    }
   }
 }

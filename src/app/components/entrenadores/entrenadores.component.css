@@ -1,157 +1,234 @@
 /* General */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fc;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
-  }
-  
-  /* Navbar */
-  .navbar {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    background: #f8f9fc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-  }
-  
-  .navbar-center {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navbar-center a {
-    cursor: pointer;
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-  
-  .navbar-center a:hover {
-    color: #007bff;
-  }
-  
-  .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .icon-btn {
-    background: #e9eff5;
-    border: none;
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    transition: 0.3s;
-  }
-  
-  .icon-btn img {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .icon-btn:hover {
-    background: #d0dae5;
-  }
-  
-  .profile-pic {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .profile-pic2 {
-    width: 120px; /* Tamaño de la imagen */
-    height: 120px;
-    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
-    border-radius: 50%; /* Forma circular */
-    margin-bottom: 15px; /* Espacio debajo de la imagen */
-    border: 4px solid #e9ab01; /* Borde decorativo */
-  }
-  .pic {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  /* Contenedor Principal */
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #ffffff;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;  /* Limita el ancho máximo de la pantalla */
-    margin: 0 auto;  /* Centra el contenedor */
-    height: auto;
-  }
-  
- 
-  
-  /* Estilo de las tarjetas de Entrenadores */
-  .class-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    width: 100%;
-    max-width: 1000px;
-    padding: 10px;
-    margin-top: 20px;
-    justify-items: center;  /* Centra las cartas dentro del contenedor */
-  }
-  
-  .class-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #000000;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: rgb(255, 255, 255);
-    transition: transform 0.3s ease;
-  }
-  
-  .class-item:hover {
-    transform: translateY(-5px);
-  }
-  
-  .class-image {
-    width: 100%;
-    height: 150px;
-    border-radius: 8px;
-  }
-  /* Estilo para la frase motivacional */
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fc;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: #f8f9fc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left a img,
+.navbar-right img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-center a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar-center a:hover {
+  color: #007bff;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-right button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Perfil */
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-pic2 {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 4px solid #e9ab01;
+}
+
+/* Contenedor Principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo de las tarjetas de Entrenadores */
+.class-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px;
+  margin-top: 20px;
+  justify-items: center;
+}
+
+.class-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000000;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: rgb(255, 255, 255);
+  transition: transform 0.3s ease;
+}
+
+.class-item:hover {
+  transform: translateY(-5px);
+}
+
+.class-image {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+}
+
+/* Estilo para la frase motivacional */
 .quote {
-    font-family: 'Courier New', Courier, monospace; /* Cambiar a cualquier fuente que desees */
-    font-size: 16px;  /* Tamaño de la fuente */
-    color: #e9ab01;   /* Color de la fuente */
-    font-style: italic; /* Estilo de la fuente (cursiva) */
-    margin-top: 10px; /* Separar un poco de los otros párrafos */
-  }
-  
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  color: #e9ab01;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* Botones de Reserva */
+.reserve-btn {
+  margin-left: auto;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reserve-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.tab {
+  background: linear-gradient(135deg, #493e43, #493e43);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.tab:hover {
+  background: linear-gradient(135deg, #e9ab01, #e9ab01);
+  transform: scale(1.05);
+}
+
+.active {
+  background: linear-gradient(135deg, #000000, #000000);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.08);
+}
+
+/* Sección para Chatbot */
+.section-text {
+  padding: 50px 0;
+  background-color: #f8f9fa;
+}
+
+.font-alt {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* Estilos de imagen en banners */
+.col-lg-6 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.banner-image-1,
+.img {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ddd;
+  display: block;
+  margin: auto;
+}
+
+.banner-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.center-container {
+  display: grid;
+  place-items: center;
+  height: 30vh;
+}

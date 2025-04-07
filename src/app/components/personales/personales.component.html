@@ -1,38 +1,65 @@
-<div class="container">
-    <form [formGroup]="progresoForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="peso">Peso (kg)</label>
-        <input type="number" id="peso" formControlName="peso" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="altura">Altura (m)</label>
-        <input type="number" id="altura" formControlName="altura" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="cintura">Cintura (cm)</label>
-        <input type="number" id="cintura" formControlName="medidas.cintura">
-      </div>
-  
-      <div class="form-group">
-        <label for="pecho">Pecho (cm)</label>
-        <input type="number" id="pecho" formControlName="medidas.pecho">
-      </div>
-  
-      <div class="form-group">
-        <label for="cadera">Cadera (cm)</label>
-        <input type="number" id="cadera" formControlName="medidas.cadera">
-      </div>
-  
-      <div class="form-group">
-        <label for="foto">Foto de Progreso</label>
-        <input type="file" id="foto" formControlName="foto">
-      </div>
-  
-      <button type="submit">Guardar Progreso</button>
-    </form>
-  
-    <canvas id="chartCanvas" width="400" height="400"></canvas>
+<nav class="navbar">
+  <div class="navbar-left">
+    <a [routerLink]="['/personales']">
+      <img src="../../../assets/perfil.webp" alt="perfil" class="pic2">
+    </a>
   </div>
-  
+  <div class="navbar-center">
+    <a (click)="goToInicio()">Inicio</a>
+    <a (click)="goToClases()">Planes</a>
+    <a (click)="goToEntrenadores()">Entrenadores</a>
+    <a (click)="goToGim()">Gimnasio</a>
+    <a (click)="goToLista()">Reserva</a>
+  </div>
+  <div class="navbar-right">
+    <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
+      <button>
+        <img src="../../../assets/correo.jpg" alt="Notifications" class="pic">
+      </button>
+    </a>
+    <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
+      <button>
+        <img src="../../../assets/insta.avif" alt="Profile" class="pic">
+      </button>
+    </a>
+    <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
+  </div>
+</nav>
+
+<div class="container">
+  <form [formGroup]="progresoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="peso">Peso (kg)</label>
+      <input type="number" id="peso" formControlName="peso" required>
+    </div>
+    <div class="form-group">
+      <label for="altura">Altura (m)</label>
+      <input type="number" id="altura" formControlName="altura" required>
+    </div>
+    <div class="form-group">
+      <label for="cintura">Cintura (cm)</label>
+      <input type="number" id="cintura" formControlName="medidas.cintura">
+    </div>
+    <div class="form-group">
+      <label for="pecho">Pecho (cm)</label>
+      <input type="number" id="pecho" formControlName="medidas.pecho">
+    </div>
+    <div class="form-group">
+      <label for="cadera">Cadera (cm)</label>
+      <input type="number" id="cadera" formControlName="medidas.cadera">
+    </div>
+    <div class="form-group">
+      <label for="foto">Foto de Perfil</label>
+      <input type="file" id="foto" formControlName="foto" (change)="onFileSelected($event)">
+    </div>
+
+    <div *ngIf="imagenPerfilUrl">
+      <p>Vista previa:</p>
+      <img [src]="imagenPerfilUrl" alt="Vista previa" width="150">
+    </div>
+
+    <button type="submit">Guardar Progreso</button>
+  </form>
+
+  <canvas id="chartCanvas" width="400" height="400"></canvas>
+</div>
