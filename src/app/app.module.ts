@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import { DateAdapter } from 'angular-calendar';
+import { PersonalesComponent } from './components/personales/personales.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { DateAdapter } from 'angular-calendar';
     ImagenPipe,
     EntrenadorPipe,
     CalendarComponent,
+    PersonalesComponent,
   ],
   imports: [
     BrowserModule,

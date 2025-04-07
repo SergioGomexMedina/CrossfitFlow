@@ -10,6 +10,7 @@ import { GimnasioComponent } from './components/gimnasio/gimnasio.component';
 import { EntrenadoresComponent } from './components/entrenadores/entrenadores.component';
 import { ActividadesComponent } from './components/actividades/actividades.component';
 import { ClasesComponent } from './components/clases/clases.component';
+import { PersonalesComponent } from './components/personales/personales.component';
 
 const routes: Routes = [{path:"", component:LoginComponent},{path:"pass", component:PassComponent},{path:"lista",component:ListaComponent},{
   path:"register",component:RegisterComponent
@@ -18,7 +19,7 @@ const routes: Routes = [{path:"", component:LoginComponent},{path:"pass", compon
   path:"login",component:LoginComponent
 },{path:"inicio", component:InicioComponent}, {path:"gim", component:GimnasioComponent},{path:"entrenadores", component:EntrenadoresComponent},{
   path:"actividades", component:ActividadesComponent
-},{path:"clases", component:ClasesComponent}];
+},{path:"clases", component:ClasesComponent},{path:"personales", component:PersonalesComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

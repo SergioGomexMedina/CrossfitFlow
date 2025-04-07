@@ -1,0 +1,38 @@
+<div class="container">
+    <form [formGroup]="progresoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="peso">Peso (kg)</label>
+        <input type="number" id="peso" formControlName="peso" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="altura">Altura (m)</label>
+        <input type="number" id="altura" formControlName="altura" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="cintura">Cintura (cm)</label>
+        <input type="number" id="cintura" formControlName="medidas.cintura">
+      </div>
+  
+      <div class="form-group">
+        <label for="pecho">Pecho (cm)</label>
+        <input type="number" id="pecho" formControlName="medidas.pecho">
+      </div>
+  
+      <div class="form-group">
+        <label for="cadera">Cadera (cm)</label>
+        <input type="number" id="cadera" formControlName="medidas.cadera">
+      </div>
+  
+      <div class="form-group">
+        <label for="foto">Foto de Progreso</label>
+        <input type="file" id="foto" formControlName="foto">
+      </div>
+  
+      <button type="submit">Guardar Progreso</button>
+    </form>
+  
+    <canvas id="chartCanvas" width="400" height="400"></canvas>
+  </div>
+  
