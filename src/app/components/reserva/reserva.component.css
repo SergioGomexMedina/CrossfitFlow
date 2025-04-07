@@ -10,7 +10,7 @@
 /* Lista de Clases */
 .class-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Hacemos las cartas más pequeñas */
   gap: 15px;
   width: 100%;
   max-width: 1000px;
@@ -22,20 +22,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #000000;  
-  padding: 15px;
+  background: #000000; /* Fondo negro */
+  color: white; /* Texto blanco */
+  padding: 15px; /* Un padding más pequeño */
   border-radius: 8px;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: white; 
+  font-size: 0.9em; /* Reducimos el tamaño de la fuente */
+  width: 100%; /* Aseguramos que ocupe todo el espacio disponible */
+  transition: transform 0.3s ease-in-out;
 }
 
+/* Estilo especial cuando solo hay una clase */
+.single-class-item {
+  background: #000000; /* Color destacado */
+  border: 2px solid #000000; /* Borde destacado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+  padding: 20px; /* Algo más de padding */
+  font-size: 1em; /* Tamaño de fuente ligeramente mayor */
+  transform: scale(1.05);
+}
 
+.single-class-item:hover {
+  transform: scale(1.1);
+}
+
+/* Ajustamos la imagen para que se vea entera y bien ajustada */
 .class-image {
-  width: 100%;
-  height: 150px;
+  width: 100%; /* La imagen ocupa todo el ancho disponible */
+  height: 150px; /* Establecemos una altura fija */
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain; /* Aseguramos que la imagen se ajuste sin recortarse */
+  margin-bottom: 10px; /* Espacio entre la imagen y el texto */
 }
 
 /* Botón de Reserva */
@@ -104,7 +122,7 @@
 /* 🔹 Ajustes Responsivos */
 @media (max-width: 600px) {
   .filtros {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 }

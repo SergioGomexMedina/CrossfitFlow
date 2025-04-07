@@ -49,7 +49,7 @@ export class RegisterComponent {
     try {
       const result = await this.userAuthService.registerUser(fullName, email, password);
       if (result.success) {
-        Swal.fire('¡Registrado!', 'Usuario registrado correctamente 🎉', 'success');
+        Swal.fire('¡Registrado!', 'Usuario registrado correctamente', 'success');
         this.router.navigate(['/login']);
       } else {
         this.errorMessage = 'Error en el registro. Intenta de nuevo.';

@@ -9,7 +9,7 @@ export class UserauthService {
   
   constructor(private auth: Auth, private firestore: Firestore) { }
 
-  // Método antiguo para registrar usuario
+  // Método  para registrar usuario
   async register({ email, password, displayName }: any) {
     try {
       const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
@@ -29,7 +29,7 @@ export class UserauthService {
     }
   }
 
-  // Nuevo método 'registerUser' con 'fullName'
+  //método 'registerUser' con 'fullName'
   async registerUser(fullName: string, email: string, password: string) {
     try {
       // Crear usuario en Authentication

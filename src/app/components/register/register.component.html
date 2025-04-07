@@ -2,38 +2,26 @@
      style="background-image: url('../../../assets/fondo.jpg'); background-size: cover; background-position: center;">
   <div class="card shadow-lg p-4 register-card" style="width: 35rem;">
     <h2 class="text-center fw-bold">Crear cuenta</h2>
-
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-     
       <div class="mb-3">
         <label for="name" class="form-label">Nombre completo</label>
         <input type="text" id="name" formControlName="fullName" class="form-control" placeholder="Nombre">
       </div>
-
-      
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" id="email" formControlName="email" class="form-control" placeholder="you@example.com">
       </div>
-
       <div class="mb-3">
         <label for="password" class="form-label">Contraseña</label>
         <input type="password" id="password" formControlName="password" class="form-control" placeholder="password">
       </div>
-
       <div class="mb-3">
         <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
         <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" placeholder="Confirm password">
       </div>
-     
       <p *ngIf="errorMessage" class="text-danger text-center">{{ errorMessage }}</p>
-
-  
       <button type="submit" class="btn btn-primary w-100">Registrarse</button>
-
       <p class="text-center mt-3">¿Ya tienes cuenta?</p>
-
-    
       <button type="button" class="btn btn-light w-100 border" (click)="goToLogin()">Iniciar</button>
     </form>
   </div>
