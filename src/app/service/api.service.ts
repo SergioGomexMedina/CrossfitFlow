@@ -13,7 +13,7 @@ interface Clase {
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://run.mocky.io/v3/3d85caff-9293-4907-b8a6-b50c540bc934';
+  private apiUrl = 'https://run.mocky.io/v3/fb467147-a73d-49cd-b90a-64fc9aa6972b';
   constructor(private http: HttpClient) {}
 
   getClases(): Observable<{ clases: Clase[] }> {

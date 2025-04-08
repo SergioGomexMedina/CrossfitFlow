@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { Firestore, collection, addDoc, getDocs } from '@angular/fire/firestore';
+import { AfterViewInit, Component } from '@angular/core';
+import { Firestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-personales',
@@ -10,129 +9,122 @@ import { Chart } from 'chart.js';
   templateUrl: './personales.component.html',
   styleUrls: ['./personales.component.css']
 })
-export class PersonalesComponent {
+export class PersonalesComponent implements AfterViewInit {
   progresoForm: FormGroup;
   progresoData: any[] = [];
-  chart: any;
-  imagenPerfilUrl: string | null = null; // Nueva propiedad para la imagen
+  editIndex: number | null = null; // Indice del elemento que se está editando
+  editId: string | null = null; // ID del documento que se está editando
 
   constructor(private db: Firestore, private fb: FormBuilder, private router: Router) {
     this.progresoForm = this.fb.group({
       peso: [''],
       altura: [''],
-      medidas: this.fb.group({
-        cintura: [''],
-        pecho: [''],
-        cadera: ['']
-      }),
-      foto: ['']
+      cintura: [''],
+      pecho: [''],
+      cadera: [''],
+      semana: ['']
     });
 
     this.loadProgresoData();
   }
 
-  goToInicio() {
-    this.router.navigate(['/inicio']);
-  }
-  goToClases() {
-    this.router.navigate(['/clases']);
-  }
-  goToActividades() {
-    this.router.navigate(['/actividades']);
-  }
-  goToEntrenadores() {
-    this.router.navigate(['/entrenadores']);
-  }
-  goToGim() {
-    this.router.navigate(['/gim']);
-  }
-  goToLista() {
-    this.router.navigate(['/lista']);
+  ngAfterViewInit() {
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      console.log('Componente cargado en el cliente');
+    } else {
+      console.log('Estamos en el servidor');
+    }
   }
 
+  // Navegación
+  goToInicio() { this.router.navigate(['/inicio']); }
+  goToClases() { this.router.navigate(['/clases']); }
+  goToActividades() { this.router.navigate(['/actividades']); }
+  goToEntrenadores() { this.router.navigate(['/entrenadores']); }
+  goToGim() { this.router.navigate(['/gim']); }
+  goToLista() { this.router.navigate(['/lista']); }
+
+  // Método para guardar o editar un registro
   async onSubmit() {
     const progreso = this.progresoForm.value;
-
     try {
-      const progresoCollection = collection(this.db, 'progresos');
-      await addDoc(progresoCollection, progreso);
-      alert('Datos guardados con éxito');
+      if (this.editIndex === null) {
+        // Guardar nuevo registro
+        const progresoCollection = collection(this.db, 'progresos');
+        await addDoc(progresoCollection, progreso);
+        alert('Datos guardados con éxito');
+      } else {
+        // Editar registro existente
+        const progresoDocRef = doc(this.db, 'progresos', this.editId!);
+        await updateDoc(progresoDocRef, progreso);
+        alert('Datos actualizados con éxito');
+      }
       this.progresoForm.reset();
-      this.imagenPerfilUrl = null; // Limpiar imagen después de guardar
-      this.loadProgresoData();
+      this.loadProgresoData(); // Actualizar la vista después de guardar o editar
+      this.editIndex = null;
+      this.editId = null;
     } catch (error) {
       alert('Hubo un error al guardar los datos: ' + error);
     }
   }
 
+  // Cargar los datos de Firestore
   async loadProgresoData() {
     try {
       const querySnapshot = await getDocs(collection(this.db, 'progresos'));
       this.progresoData = [];
       querySnapshot.forEach((doc) => {
-        this.progresoData.push(doc.data());
+        this.progresoData.push({ ...doc.data(), id: doc.id });
       });
 
-      console.log('Datos cargados:', this.progresoData);
-      this.generateChart();
+      // Calcular el progreso de peso después de cargar los datos
+      this.calculateProgresoPeso();
     } catch (error) {
       console.log('Error al cargar los datos: ', error);
     }
   }
 
-  generateChart() {
-    if (this.chart) {
-      this.chart.destroy();
+  // Calcular el progreso de peso basado en los registros
+  calculateProgresoPeso() {
+    if (this.progresoData.length > 1) {
+      // Ordenamos por semana de forma ascendente para asegurar que el orden es correcto
+      this.progresoData.sort((a, b) => a.semana - b.semana);
+      
+      // Recorremos los datos para calcular el progreso de peso
+      for (let i = 1; i < this.progresoData.length; i++) {
+        const currentPeso = parseFloat(this.progresoData[i].peso);
+        const previousPeso = parseFloat(this.progresoData[i - 1].peso);
+        const progresoPeso = currentPeso - previousPeso;
+        this.progresoData[i].progresoPeso = progresoPeso.toFixed(2); // Guardamos el progreso de peso en el registro
+      }
     }
+  }
 
-    const labels = this.progresoData.map((_, i) => `Semana ${i + 1}`);
-    const pesos = this.progresoData.map(data => data.peso);
-    const imcValues = this.progresoData.map(data => this.calcularIMC(data.peso, data.altura));
-
-    this.chart = new Chart('chartCanvas', {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Peso (kg)',
-            data: pesos,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            fill: false,
-          },
-          {
-            label: 'IMC',
-            data: imcValues,
-            borderColor: 'rgba(255, 99, 132, 1)',
-            fill: false,
-          }
-        ],
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
+  // Editar un registro
+  editProgreso(index: number) {
+    const progreso = this.progresoData[index];
+    this.progresoForm.setValue({
+      peso: progreso.peso,
+      altura: progreso.altura,
+      cintura: progreso.cintura,
+      pecho: progreso.pecho,
+      cadera: progreso.cadera,
+      semana: progreso.semana
     });
+    this.editIndex = index;
+    this.editId = progreso.id;
   }
 
-  calcularIMC(peso: number, altura: number) {
-    return (peso / (altura * altura)).toFixed(2);
-  }
-
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.imagenPerfilUrl = URL.createObjectURL(file);
-
-      // Cambiar imagen en el navbar con alt="perfil"
-      const navbarImg = document.querySelector('img[alt="perfil"]') as HTMLImageElement;
-      if (navbarImg) {
-        navbarImg.src = this.imagenPerfilUrl;
-      }
+  // Eliminar un registro
+  async deleteProgreso(index: number) {
+    const progreso = this.progresoData[index];
+    try {
+      const progresoDocRef = doc(this.db, 'progresos', progreso.id);
+      await deleteDoc(progresoDocRef);
+      alert('Registro eliminado con éxito');
+      this.loadProgresoData(); // Actualizar la vista después de eliminar
+    } catch (error) {
+      alert('Hubo un error al eliminar los datos: ' + error);
     }
   }
 }

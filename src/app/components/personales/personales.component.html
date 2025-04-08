@@ -1,9 +1,9 @@
 <nav class="navbar">
   <div class="navbar-left">
     <a [routerLink]="['/personales']">
-      <img src="../../../assets/perfil.webp" alt="perfil" class="pic2">
+      <img src="../../../assets/perfil.webp" alt="Notifications" class="pic2">
     </a>
-  </div>
+      </div>
   <div class="navbar-center">
     <a (click)="goToInicio()">Inicio</a>
     <a (click)="goToClases()">Planes</a>
@@ -19,47 +19,76 @@
     </a>
     <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
       <button>
-        <img src="../../../assets/insta.avif" alt="Profile" class="pic">
+          <img src="../../../assets/insta.avif" alt="Profile" class="pic">
       </button>
-    </a>
+  </a>
     <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
   </div>
 </nav>
+<!-- personas.component.html -->
+<!-- personas.component.html -->
+<div class="personales-container p-4">
+  <div class="progreso-container">
+    <!-- Formulario -->
+    <div class="progreso-form p-4">
+      <form [formGroup]="progresoForm" (ngSubmit)="onSubmit()">
+        <label for="peso">Peso</label>
+        <input id="peso" formControlName="peso" type="number" placeholder="Peso" />
 
-<div class="container">
-  <form [formGroup]="progresoForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="peso">Peso (kg)</label>
-      <input type="number" id="peso" formControlName="peso" required>
-    </div>
-    <div class="form-group">
-      <label for="altura">Altura (m)</label>
-      <input type="number" id="altura" formControlName="altura" required>
-    </div>
-    <div class="form-group">
-      <label for="cintura">Cintura (cm)</label>
-      <input type="number" id="cintura" formControlName="medidas.cintura">
-    </div>
-    <div class="form-group">
-      <label for="pecho">Pecho (cm)</label>
-      <input type="number" id="pecho" formControlName="medidas.pecho">
-    </div>
-    <div class="form-group">
-      <label for="cadera">Cadera (cm)</label>
-      <input type="number" id="cadera" formControlName="medidas.cadera">
-    </div>
-    <div class="form-group">
-      <label for="foto">Foto de Perfil</label>
-      <input type="file" id="foto" formControlName="foto" (change)="onFileSelected($event)">
+        <label for="altura">Altura</label>
+        <input id="altura" formControlName="altura" type="number" placeholder="Altura" />
+
+        <label for="cintura">Cintura</label>
+        <input id="cintura" formControlName="cintura" type="number" placeholder="Cintura" />
+
+        <label for="pecho">Pecho</label>
+        <input id="pecho" formControlName="pecho" type="number" placeholder="Pecho" />
+
+        <label for="cadera">Cadera</label>
+        <input id="cadera" formControlName="cadera" type="number" placeholder="Cadera" />
+
+        <!-- Campo para la semana -->
+        <label for="semana">Semana</label>
+        <input id="semana" formControlName="semana" type="number" placeholder="Semana" />
+
+       
+
+        <button type="submit">Guardar</button>
+      </form>
     </div>
 
-    <div *ngIf="imagenPerfilUrl">
-      <p>Vista previa:</p>
-      <img [src]="imagenPerfilUrl" alt="Vista previa" width="150">
+    <!-- Tabla para mostrar los datos -->
+    <div *ngIf="progresoData.length > 0" class="progreso-table p-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Peso</th>
+            <th>Altura</th>
+            <th>Cintura</th>
+            <th>Pecho</th>
+            <th>Cadera</th>
+            <th>Semana</th> <!-- Columna para la semana -->
+            <th>Progreso Peso</th> <!-- Columna para el progreso de peso -->
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let progreso of progresoData; let i = index">
+            <td>{{ progreso.peso }}</td>
+            <td>{{ progreso.altura }}</td>
+            <td>{{ progreso.cintura }}</td>
+            <td>{{ progreso.pecho }}</td>
+            <td>{{ progreso.cadera }}</td>
+            <td>{{ progreso.semana }}</td> <!-- Mostrar la semana -->
+            <td>{{ progreso.progresoPeso }}</td> <!-- Mostrar el progreso de peso -->
+            <td>
+              <button (click)="editProgreso(i)">Editar</button>
+              <button (click)="deleteProgreso(i)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <button type="submit">Guardar Progreso</button>
-  </form>
-
-  <canvas id="chartCanvas" width="400" height="400"></canvas>
+  </div>
 </div>
+
