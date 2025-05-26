@@ -1,46 +1,29 @@
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="navbar-left">
-    <a [routerLink]="['/personales']">
-      <img src="../../../assets/perfil.webp" alt="Notifications" class="pic2">
-    </a>
-      </div>
-  <div class="navbar-center">
-    <a (click)="goToInicio()">Inicio</a>
-    <a (click)="goToClases()">Planes</a>
-    <a (click)="goToLista()">Reserva</a>
-    <a (click)="goToGim()">Gimnasio</a>
-    <a (click)="goToActividades()">Actividades</a>
-  </div>
-  <div class="navbar-right">
-    <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
-      <button>
-        <img src="../../../assets/correo.jpg" alt="Notifications" class="pic">
-      </button>
-    </a>
-    <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
-      <button>
-          <img src="../../../assets/insta.avif" alt="Profile" class="pic">
-      </button>
-  </a>
-    <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
-  </div>
-</nav>
-  
-  
- 
-  <div class="container">
-    <div class="class-list p-4">
-      <div *ngFor="let entrenador of entrenadores" class="class-item">
-        <!-- Usando el pipe para mostrar la imagen de cada entrenador -->
-        <img [src]="entrenador.nombre | entrenador" alt="Foto de {{ entrenador.nombre }}" class="profile-pic2">
-        <h3>{{ entrenador.nombre }}</h3>
-        <p><strong>Especialidad:</strong> {{ entrenador.especialidad }}</p>
-        <p><strong>Certificaciones:</strong> {{ entrenador.certificaciones.join(', ') }}</p>
-        <p><strong>Años de experiencia:</strong> {{ entrenador.anos_experiencia }}</p>
-        <p><strong>Disponibilidad:</strong> {{ entrenador.disponibilidad.join(', ') }}</p>
-        <p class="quote">"{{ entrenador.frase_motivacional }}"</p>
-      </div>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="class-list p-4">
+    <div *ngFor="let entrenador of entrenadores" class="class-item">
+      <!-- Usando el pipe para mostrar la imagen de cada entrenador -->
+      <img
+        [src]="entrenador.nombre | entrenador"
+        alt="Foto de {{ entrenador.nombre }}"
+        class="profile-pic2"
+      />
+      <h3>{{ entrenador.nombre }}</h3>
+      <p><strong>Especialidad:</strong> {{ entrenador.especialidad }}</p>
+      <p>
+        <strong>Certificaciones:</strong>
+        {{ entrenador.certificaciones.join(", ") }}
+      </p>
+      <p>
+        <strong>Años de experiencia:</strong> {{ entrenador.anos_experiencia }}
+      </p>
+      <p>
+        <strong>Disponibilidad:</strong>
+        {{ entrenador.disponibilidad.join(", ") }}
+      </p>
+      <p class="quote">"{{ entrenador.frase_motivacional }}"</p>
     </div>
   </div>
-  <app-chatbot></app-chatbot>
+</div>
+<app-chatbot></app-chatbot>

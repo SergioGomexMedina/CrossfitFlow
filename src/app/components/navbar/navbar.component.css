@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+
+  a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .navbar-left,
+  .navbar-center,
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-center {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .pic,
+  .pic2,
+  .profile-pic {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 5px;
+  }
+
+  .pic2 {
+    border: 2px solid #fff;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
