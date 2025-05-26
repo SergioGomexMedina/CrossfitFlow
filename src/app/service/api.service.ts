@@ -10,10 +10,11 @@ interface Clase {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'https://run.mocky.io/v3/fb467147-a73d-49cd-b90a-64fc9aa6972b';
+  private apiUrl =
+    'https://run.mocky.io/v3/c12eea04-dd43-4b69-8382-14ffd0ae73bb';
   constructor(private http: HttpClient) {}
 
   getClases(): Observable<{ clases: Clase[] }> {
