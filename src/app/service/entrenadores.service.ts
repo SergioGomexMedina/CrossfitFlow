@@ -13,10 +13,11 @@ interface Entrenador {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EntrenadoresService {
-  private apiUrl = 'https://run.mocky.io/v3/be01d8a8-1859-4c26-bc6c-434d7106fa62';
+  private apiUrl =
+    'https://run.mocky.io/v3/be01d8a8-1859-4c26-bc6c-434d7106fa62';
 
   constructor(private http: HttpClient) {}
 
