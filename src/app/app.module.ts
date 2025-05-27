@@ -28,6 +28,7 @@ import { CalendarModule } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import { DateAdapter } from 'angular-calendar';
 import { PersonalesComponent } from './components/personales/personales.component';
+import { NavbarComponent } from './components/navbar/navbar.components';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PersonalesComponent } from './components/personales/personales.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
+    NavbarComponent ,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
