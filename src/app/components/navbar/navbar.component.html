@@ -1,16 +1,20 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <a (click)="goToPersonales()" >
-      <img src="../../../assets/perfil.webp" alt="Perfil" class="pic2" />
+    <a (click)="goToPerfil()">
+      <img
+        [src]="avatarSeleccionado || '../../../assets/perfil.webp'"
+        alt="Perfil"
+        class="pic2"
+      />
     </a>
   </div>
 
   <div class="navbar-center">
     <a (click)="goToInicio()">Inicio</a>
-    <a (click)="goToClases()">Planes</a>
+    <a (click)="goToPlanes()">Planes</a>
     <a (click)="goToEntrenadores()">Entrenadores</a>
     <a (click)="goToActividades()">Actividades</a>
-    <a (click)="goToLista()">Reserva</a>
+    <a (click)="goToReserva()">Reserva</a>
   </div>
 
   <div class="navbar-right">

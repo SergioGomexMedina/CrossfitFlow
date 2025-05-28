@@ -1,34 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-navbar',
-  standalone:true,
+  standalone: true,
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
-  constructor(private router: Router) {}
+export class NavbarComponent implements OnInit {
+  avatarSeleccionado: string = '';
+
+  constructor(private router: Router, private user: UserService) {}
+
+  ngOnInit() {
+    this.user.selectedAvatar$.subscribe((ruta) => {
+      this.avatarSeleccionado = ruta;
+    });
+  }
 
   goToInicio() {
     this.router.navigate(['/inicio']);
   }
-  goToPersonales() {
-    this.router.navigate(['/personales']);}
 
   goToClases() {
-    this.router.navigate(['/planes']);
-  }
-
-  goToEntrenadores() {
-    this.router.navigate(['/entrenadores']);
+    this.router.navigate(['/lista']);
   }
 
   goToActividades() {
     this.router.navigate(['/actividades']);
   }
 
-  goToLista() {
-    this.router.navigate(['/reserva']);
+  goToEntrenadores() {
+    this.router.navigate(['/entrenadores']);
+  }
+
+  goToPlanes() {
+    this.router.navigate(['/clases']);
+  }
+
+  goToGim() {
+    this.router.navigate(['/gim']);
+  }
+
+  goToReserva() {
+    this.router.navigate(['/lista']);
+  }
+
+  goToPerfil() {
+    this.router.navigate(['/personales']);
   }
 }

@@ -1,31 +1,4 @@
-<nav class="navbar">
-  <div class="navbar-left">
-    <a [routerLink]="['/personales']">
-      <img src="../../../assets/perfil.webp" alt="Notifications" class="pic2">
-    </a>
-      </div>
-  <div class="navbar-center">
-    <a (click)="goToInicio()">Inicio</a>
-    <a (click)="goToClases()">Planes</a>
-    <a (click)="goToEntrenadores()">Entrenadores</a>
-    <a (click)="goToGim()">Gimnasio</a>
-    <a (click)="goToLista()">Reserva</a>
-  </div>
-  <div class="navbar-right">
-    <a href="mailto:crossfitflow@example.com?subject=Consulta&body=Hola, quisiera más información sobre sus servicios." target="_blank">
-      <button>
-        <img src="../../../assets/correo.jpg" alt="Notifications" class="pic">
-      </button>
-    </a>
-    <a href="https://www.instagram.com/holidaygym/?hl=es" target="_blank">
-      <button>
-          <img src="../../../assets/insta.avif" alt="Profile" class="pic">
-      </button>
-  </a>
-    <img src="../../../assets/logo.jpg" alt="Profile Picture" class="profile-pic">
-  </div>
-</nav>
-<!-- personas.component.html -->
+<app-navbar></app-navbar>
 <!-- personas.component.html -->
 <div class="personales-container p-4">
   <div class="progreso-container">
@@ -33,25 +6,53 @@
     <div class="progreso-form p-4">
       <form [formGroup]="progresoForm" (ngSubmit)="onSubmit()">
         <label for="peso">Peso</label>
-        <input id="peso" formControlName="peso" type="number" placeholder="Peso" />
+        <input
+          id="peso"
+          formControlName="peso"
+          type="number"
+          placeholder="Peso"
+        />
 
         <label for="altura">Altura</label>
-        <input id="altura" formControlName="altura" type="number" placeholder="Altura" />
+        <input
+          id="altura"
+          formControlName="altura"
+          type="number"
+          placeholder="Altura"
+        />
 
         <label for="cintura">Cintura</label>
-        <input id="cintura" formControlName="cintura" type="number" placeholder="Cintura" />
+        <input
+          id="cintura"
+          formControlName="cintura"
+          type="number"
+          placeholder="Cintura"
+        />
 
         <label for="pecho">Pecho</label>
-        <input id="pecho" formControlName="pecho" type="number" placeholder="Pecho" />
+        <input
+          id="pecho"
+          formControlName="pecho"
+          type="number"
+          placeholder="Pecho"
+        />
 
         <label for="cadera">Cadera</label>
-        <input id="cadera" formControlName="cadera" type="number" placeholder="Cadera" />
+        <input
+          id="cadera"
+          formControlName="cadera"
+          type="number"
+          placeholder="Cadera"
+        />
 
         <!-- Campo para la semana -->
         <label for="semana">Semana</label>
-        <input id="semana" formControlName="semana" type="number" placeholder="Semana" />
-
-       
+        <input
+          id="semana"
+          formControlName="semana"
+          type="number"
+          placeholder="Semana"
+        />
 
         <button type="submit">Guardar</button>
       </form>
@@ -67,8 +68,10 @@
             <th>Cintura</th>
             <th>Pecho</th>
             <th>Cadera</th>
-            <th>Semana</th> <!-- Columna para la semana -->
-            <th>Progreso Peso</th> <!-- Columna para el progreso de peso -->
+            <th>Semana</th>
+            <!-- Columna para la semana -->
+            <th>Progreso Peso</th>
+            <!-- Columna para el progreso de peso -->
             <th>Acciones</th>
           </tr>
         </thead>
@@ -79,8 +82,10 @@
             <td>{{ progreso.cintura }}</td>
             <td>{{ progreso.pecho }}</td>
             <td>{{ progreso.cadera }}</td>
-            <td>{{ progreso.semana }}</td> <!-- Mostrar la semana -->
-            <td>{{ progreso.progresoPeso }}</td> <!-- Mostrar el progreso de peso -->
+            <td>{{ progreso.semana }}</td>
+            <!-- Mostrar la semana -->
+            <td>{{ progreso.progresoPeso }}</td>
+            <!-- Mostrar el progreso de peso -->
             <td>
               <button (click)="editProgreso(i)">Editar</button>
               <button (click)="deleteProgreso(i)">Eliminar</button>
@@ -92,3 +97,15 @@
   </div>
 </div>
 
+<!-- Selector de avatar alineado a la derecha debajo del navbar y de la tabla -->
+<div class="avatar-wrapper p-4">
+  <h4>Selecciona tu avatar</h4>
+  <div class="avatar-container">
+    <img
+      *ngFor="let avatar of avatares"
+      [src]="avatar"
+      (click)="seleccionarAvatar(avatar)"
+      class="avatar-img"
+    />
+  </div>
+</div>

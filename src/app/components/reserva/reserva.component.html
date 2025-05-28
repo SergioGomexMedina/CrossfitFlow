@@ -13,7 +13,12 @@
 
     <div class="filtro-item">
       <label for="fecha">Fecha:</label>
-      <input type="date" id="fecha" [(ngModel)]="filtroFecha" (change)="filtrarClases()" />
+      <input
+        type="date"
+        id="fecha"
+        [(ngModel)]="filtroFecha"
+        (change)="filtrarClases()"
+      />
     </div>
   </div>
 
@@ -21,13 +26,21 @@
     <div
       class="class-item"
       *ngFor="let clase of clasesFiltradas"
-      [ngClass]="{'single-class-item': clasesFiltradas.length === 1}">
-      <img [src]="clase.tipo | imagen" class="class-image" alt="{{ clase.tipo }}" />
+      [ngClass]="{ 'single-class-item': clasesFiltradas.length === 1 }"
+    >
+      <img
+        [src]="clase.tipo | imagen"
+        class="class-image"
+        alt="{{ clase.tipo }}"
+      />
       <h3>{{ clase.tipo | uppercase }}</h3>
       <p><strong>Entrenador:</strong> {{ clase.entrenador }}</p>
       <p><strong>Fecha:</strong> {{ clase.fecha }}</p>
       <p><strong>Duración:</strong> {{ clase.duracion }} min</p>
-      <button class="reserve-btn">Reservar</button>
+      <!-- Aquí añadimos el click para reservar -->
+      <button class="reserve-btn" (click)="reservarClase(clase)">
+        Reservar
+      </button>
     </div>
   </div>
 </div>

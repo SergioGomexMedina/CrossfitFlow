@@ -1,131 +1,49 @@
-/* Contenedor principal */
-.personales-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;  /* Alinea los elementos en fila */
-  gap: 30px;  /* Espacio entre el formulario y la tabla */
-}
-
-/* Contenedor de formulario y tabla */
-.progreso-container {
-  display: flex;
-  gap: 30px;  /* Espacio entre el formulario y la tabla */
-}
-
-/* Formulario */
-.progreso-form {
-  width: 50%;  /* Ajusta el ancho del formulario */
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-form input,
-form button {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-form button {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #0056b3;
-}
-
-/* Tabla */
-.progreso-table {
-  width: 50%;  /* Ajusta el ancho de la tabla */
-  overflow-x: auto;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table th, table td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-button {
-  margin: 5px;
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
 /* General */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
   color: #333;
-  text-align: center;
   margin: 0;
   padding: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: start;
 }
 
 /* Navbar */
 .navbar {
   width: 100%;
-  height: 60px;
+  height: 70px;
+  background: #ffffff;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  background: #f8f9fc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .navbar-left a img,
 .navbar-right img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .navbar-center {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .navbar-center a {
-  cursor: pointer;
   text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  transition: 0.3s;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .navbar-center a:hover {
@@ -135,122 +53,197 @@ body {
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .navbar-right button {
-  background: transparent;
+  background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
 }
 
+/* Contenedor principal */
+.personales-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 30px auto;
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+}
+
+/* Formulario */
+.progreso-form {
+  flex: 2; /* Aumenta su proporción de ancho */
+  background: #d6d8db; /* Gris más oscuro que el blanco, pero aún suave */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input,
+form button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+form button {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Tabla */
+.progreso-table {
+  flex: 1;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+table th {
+  background-color: #f1f3f5;
+}
+
+button {
+  margin: 4px;
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
 /* Perfil */
+.profile-pic, .profile-pic2 {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .profile-pic {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 .profile-pic2 {
   width: 120px;
   height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
   border: 4px solid #e9ab01;
+  margin-bottom: 15px;
 }
 
-/* Contenedor Principal */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #ffffff;
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Estilo de las tarjetas de Entrenadores */
+/* Entrenadores */
 .class-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  width: 100%;
-  max-width: 1000px;
-  padding: 10px;
-  margin-top: 20px;
-  justify-items: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .class-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #000000;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
-  color: rgb(255, 255, 255);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
 }
 
 .class-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 .class-image {
   width: 100%;
-  height: 150px;
-  border-radius: 8px;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-/* Estilo para la frase motivacional */
+/* Frase motivacional */
 .quote {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
+  font-size: 18px;
   color: #e9ab01;
   font-style: italic;
   margin-top: 10px;
 }
 
-/* Botones de Reserva */
+/* Reserva */
 .reserve-btn {
-  margin-left: auto;
   background: #ffffff;
   border: 1px solid #ccc;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s;
 }
 
 .reserve-btn:hover {
-  background: #f0f0f0;
+  background: #eaeaea;
 }
 
 /* Tabs */
 .tabs {
   display: flex;
-  gap: 12px;
-  padding: 10px 0;
+  gap: 15px;
+  padding: 20px 0;
 }
 
 .tab {
   background: linear-gradient(135deg, #493e43, #493e43);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 10px 24px;
+  border-radius: 30px;
   color: white;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tab:hover {
@@ -260,58 +253,34 @@ body {
 
 .active {
   background: linear-gradient(135deg, #000000, #000000);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
-/* Sección para Chatbot */
-.section-text {
-  padding: 50px 0;
-  background-color: #f8f9fa;
-}
-
-.font-alt {
-  font-family: 'Arial', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-/* Estilos de imagen en banners */
-.col-lg-6 img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.banner-image-1,
-.img {
-  position: absolute;
-  width: 100%;
-  max-width: 400px;
-}
-
-img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
-  border: 2px solid #ddd;
-  display: block;
-  margin: auto;
-}
-
+/* Banner e imágenes */
 .banner-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.avatar-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
-.center-container {
-  display: grid;
-  place-items: center;
-  height: 30vh;
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
+
+.avatar-img:hover {
+  transform: scale(1.1);
+}
+
+

@@ -6,15 +6,13 @@ import { Router } from '@angular/router';
   selector: 'app-inicio',
   standalone: false,
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  styleUrl: './inicio.component.css',
 })
 export class InicioComponent {
-  constructor(private fb: FormBuilder, private router : Router) {
-    
-  }
-  
+  constructor(private fb: FormBuilder, private router: Router) {}
+
   goToInicio() {
-    this.router.navigate(['/lista']);
+    this.router.navigate(['/inicio']);
   }
   goToClases() {
     this.router.navigate(['/lista']);
@@ -25,7 +23,7 @@ export class InicioComponent {
   goToEntrenadores() {
     this.router.navigate(['/entrenadores']);
   }
-  goToPlanes(){
+  goToPlanes() {
     this.router.navigate(['/clases']);
   }
   goToGim() {

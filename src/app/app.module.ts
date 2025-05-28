@@ -30,7 +30,6 @@ import { DateAdapter } from 'angular-calendar';
 import { PersonalesComponent } from './components/personales/personales.component';
 import { NavbarComponent } from './components/navbar/navbar.components';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,21 +57,22 @@ import { NavbarComponent } from './components/navbar/navbar.components';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NavbarComponent ,
+    NavbarComponent,
     CalendarModule.forRoot({
       provide: DateAdapter,
-      useFactory: adapterFactory
+      useFactory: adapterFactory,
     }),
   ],
   providers: [
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
-    provideFirebaseApp(() => 
+    provideFirebaseApp(() =>
       initializeApp({
         projectId: 'crossfitflow',
         appId: '1:831085076098:web:d1cd6646250ff519569e9b',
-        databaseURL: 'https://crossfitflow-default-rtdb.europe-west1.firebasedatabase.app',
+        databaseURL:
+          'https://crossfitflow-default-rtdb.europe-west1.firebasedatabase.app',
         storageBucket: 'crossfitflow.firebasestorage.app',
         apiKey: 'AIzaSyBnVRH_jiQ0bXLL_tHM0U5j4X_SGosyc2U',
         authDomain: 'crossfitflow.firebaseapp.com',
