@@ -17,7 +17,7 @@ interface Entrenador {
 })
 export class EntrenadoresService {
   private apiUrl =
-    'https://run.mocky.io/v3/be01d8a8-1859-4c26-bc6c-434d7106fa62';
+    'https://run.mocky.io/v3/093b3be5-f4c9-41c9-8f74-6aea3a119e96';
 
   constructor(private http: HttpClient) {}
 

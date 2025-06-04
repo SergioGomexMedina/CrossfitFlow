@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <!-- personas.component.html -->
 <div class="personales-container p-4">
+  <h3>Guarda tu progreso semanal </h3>
   <div class="progreso-container">
     <!-- Formulario -->
     <div class="progreso-form p-4">
@@ -45,7 +46,6 @@
           placeholder="Cadera"
         />
 
-        <!-- Campo para la semana -->
         <label for="semana">Semana</label>
         <input
           id="semana"
@@ -58,7 +58,6 @@
       </form>
     </div>
 
-    <!-- Tabla para mostrar los datos -->
     <div *ngIf="progresoData.length > 0" class="progreso-table p-4">
       <table class="table table-striped">
         <thead>
@@ -69,9 +68,6 @@
             <th>Pecho</th>
             <th>Cadera</th>
             <th>Semana</th>
-            <!-- Columna para la semana -->
-            <th>Progreso Peso</th>
-            <!-- Columna para el progreso de peso -->
             <th>Acciones</th>
           </tr>
         </thead>
@@ -83,9 +79,6 @@
             <td>{{ progreso.pecho }}</td>
             <td>{{ progreso.cadera }}</td>
             <td>{{ progreso.semana }}</td>
-            <!-- Mostrar la semana -->
-            <td>{{ progreso.progresoPeso }}</td>
-            <!-- Mostrar el progreso de peso -->
             <td>
               <button (click)="editProgreso(i)">Editar</button>
               <button (click)="deleteProgreso(i)">Eliminar</button>

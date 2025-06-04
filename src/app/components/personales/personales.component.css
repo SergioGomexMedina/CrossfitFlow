@@ -1,99 +1,48 @@
-/* General */
+/* GENERAL */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f8;
   color: #333;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: start;
+  box-sizing: border-box;
 }
 
-/* Navbar */
-.navbar {
-  width: 100%;
-  height: 70px;
-  background: #ffffff;
-  padding: 0 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.navbar-left a img,
-.navbar-right img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.navbar-center {
-  display: flex;
-  gap: 25px;
-}
-
-.navbar-center a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.navbar-center a:hover {
-  color: #007bff;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.navbar-right button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Contenedor principal */
+/* CONTENEDOR PRINCIPAL */
 .personales-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 30px auto;
-  padding: 20px;
-  display: flex;
-  gap: 40px;
+  width: 80%;
+  margin: 0;
+  padding: 30px;
+  display: block;
 }
 
-/* Formulario */
+/* FORMULARIO */
 .progreso-form {
-  flex: 2; /* Aumenta su proporción de ancho */
-  background: #d6d8db; /* Gris más oscuro que el blanco, pero aún suave */
-  padding: 25px;
+  width: 100vw;
+  background: #d6d8db;
+  padding: 40px;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  width: 100%;
+  box-sizing: border-box;
 }
-
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 form input,
 form button {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   transition: all 0.3s ease-in-out;
 }
@@ -109,20 +58,22 @@ form button {
   color: #fff;
   font-weight: bold;
   border: none;
+  cursor: pointer;
 }
 
 form button:hover {
   background-color: #0056b3;
 }
 
-/* Tabla */
+/* TABLA */
 .progreso-table {
-  flex: 1;
+  width: 100vw;
   background: #ffffff;
-  padding: 25px;
+  padding: 40px;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   overflow-x: auto;
+  box-sizing: border-box;
 }
 
 table {
@@ -150,14 +101,13 @@ button {
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 button:hover {
   background-color: #218838;
 }
 
-/* Perfil */
+/* FOTOS - PERFIL */
 .profile-pic, .profile-pic2 {
   object-fit: cover;
   border-radius: 50%;
@@ -175,95 +125,7 @@ button:hover {
   margin-bottom: 15px;
 }
 
-/* Entrenadores */
-.class-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.class-item {
-  background: #1a1a1a;
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-
-.class-item:hover {
-  transform: translateY(-8px);
-}
-
-.class-image {
-  width: 100%;
-  height: 160px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* Frase motivacional */
-.quote {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 18px;
-  color: #e9ab01;
-  font-style: italic;
-  margin-top: 10px;
-}
-
-/* Reserva */
-.reserve-btn {
-  background: #ffffff;
-  border: 1px solid #ccc;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.reserve-btn:hover {
-  background: #eaeaea;
-}
-
-/* Tabs */
-.tabs {
-  display: flex;
-  gap: 15px;
-  padding: 20px 0;
-}
-
-.tab {
-  background: linear-gradient(135deg, #493e43, #493e43);
-  padding: 10px 24px;
-  border-radius: 30px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.tab:hover {
-  background: linear-gradient(135deg, #e9ab01, #e9ab01);
-  transform: scale(1.05);
-}
-
-.active {
-  background: linear-gradient(135deg, #000000, #000000);
-  transform: scale(1.1);
-}
-
-/* Banner e imágenes */
-.banner-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+/* AVATARES */
 .avatar-container {
   display: flex;
   justify-content: space-around;
@@ -282,5 +144,3 @@ button:hover {
 .avatar-img:hover {
   transform: scale(1.1);
 }
-
-
