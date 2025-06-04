@@ -26,10 +26,10 @@ export class PersonalesComponent implements AfterViewInit {
 
   // NUEVO: Avatares
   avatares = [
-    'assets/images/ana.jpg',
-    'assets/images/carlos.jpg',
-    'assets/images/luis.jpg',
-    'assets/images/maria.jpg',
+    'assets/avatar/negroavatar.png',
+    'assets/avatar/image (3).jpg',
+    'assets/avatar/image (2).jpg',
+    'assets/perfil.webp',
   ];
 
   constructor(
@@ -37,8 +37,7 @@ export class PersonalesComponent implements AfterViewInit {
     private fb: FormBuilder,
     private router: Router,
     private users: UserService
-  ) // NUEVO: Inyección de servicio
-  {
+  ) {
     this.progresoForm = this.fb.group({
       peso: [''],
       altura: [''],
@@ -59,12 +58,9 @@ export class PersonalesComponent implements AfterViewInit {
     }
   }
 
-  // NUEVO: Método para seleccionar avatar
   seleccionarAvatar(ruta: string) {
     this.users.setAvatar(ruta);
   }
-
-  // Resto de tus métodos sin cambios...
 
   goToInicio() {
     this.router.navigate(['/inicio']);
