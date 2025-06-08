@@ -17,6 +17,9 @@ export class InicioComponent {
   goToClases() {
     this.router.navigate(['/lista']);
   }
+  goToReserva() {
+    this.router.navigate(['/reserva']);
+  }
   goToActividades() {
     this.router.navigate(['/actividades']);
   }
